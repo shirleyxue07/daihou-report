@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-page-node-id="VL776Mw6cQjfrksDQmRaI8">
+<head data-page-node-id="jNujq9Ckui7VJxjQOaZZxb">
+<meta charset="UTF-8" data-page-node-id="OiHhIzWgEnSsFU0lJGncVC">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="kgaTkMzktPePOnZpa5233h">
+<title>贷后业务承接模式探讨（第五版·修订）</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:#f6f7f9;color:#333;line-height:1.8;}
+  header.doc{background:#fff;border-bottom:1px solid #e8ecf2;}
+  header.doc .in{max-width:1280px;margin:0 auto;padding:16px 24px 12px;border-bottom:3px solid #c62828;}
+  header.doc .tag{font-size:12px;color:#c62828;letter-spacing:2px;}
+  header.doc h1{font-size:22px;color:#222;line-height:1.4;margin:5px 0 6px;}
+  header.doc .sub{font-size:13px;color:#666;}
+  header.doc .meta{margin-top:6px;font-size:12px;color:#90a4ae;}
+  .layout{max-width:1280px;margin:0 auto;display:flex;align-items:flex-start;}
+  .side{flex:0 0 244px;position:sticky;top:0;align-self:flex-start;height:100vh;overflow-y:auto;padding:20px 12px 40px 16px;background:#fff;border-right:1px solid #e8ecf2;}
+  .side-h{font-size:13px;font-weight:800;color:#c62828;letter-spacing:2px;padding:4px 8px 10px;border-bottom:2px solid #fdecea;margin-bottom:8px;}
+  .side nav a{display:block;font-size:12.5px;color:#555;text-decoration:none;padding:5px 8px;border-radius:6px;line-height:1.5;}
+  .side nav a:hover{background:#fdecea;color:#c62828;}
+  .side nav a.sec2{padding-left:22px;color:#7a8a9a;font-size:12px;}
+  .side-note{font-size:10.5px;color:#a0aab8;padding:10px 8px 0;margin-top:10px;border-top:1px dashed #e8ecf2;line-height:1.7;}
+  .main{flex:1;min-width:0;padding:8px 34px 60px 26px;}
+  .sec{margin-top:36px;}
+  .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .sec-head .no{width:28px;height:28px;border-radius:8px;color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .sec-head h2{font-size:18px;color:#222;}
+  .s1 .sec-head .no{background:#c62828}.s2 .sec-head .no{background:#7b1fa2}.s3 .sec-head .no{background:#3b6fa0}.s4 .sec-head .no{background:#d97706}.s5 .sec-head .no{background:#00695c}.s6 .sec-head .no{background:#2e7d32}.sx .sec-head .no{background:#c62828}
+  .card{background:#fff;border:1px solid #e4e8ee;border-radius:12px;padding:18px 22px;margin-bottom:14px;}
+  .card h3{font-size:15px;color:#222;margin-bottom:8px;}
+  .card p,.card li{font-size:13.5px;color:#555;margin-bottom:7px;}
+  .card ul,.card ol{padding-left:22px;}
+  .hl{color:#c62828;font-weight:700;}
+  .hlb{color:#3b6fa0;font-weight:700;}
+  .view{display:block;background:#f5f8fc;border-left:4px solid #3b6fa0;border-radius:0 8px 8px 0;padding:10px 14px;margin:10px 0;font-size:13px;color:#33415c;}
+  .view b{color:#3b6fa0;}
+  .view.red{background:#fdecea;border-left-color:#c62828;color:#6b3530;}
+  .view.red b{color:#c62828;}
+  table.tb{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0;background:#fff;}
+  table.tb th{background:#f5f8fc;color:#33415c;font-weight:600;padding:8px 10px;text-align:left;border:1px solid #e4e8ee;}
+  table.tb td{padding:8px 10px;border:1px solid #e9edf2;color:#444;vertical-align:top;}
+  table.tb td.k{background:#f5f8fc !important;color:#33415c;font-weight:600;}
+  .foot{margin-top:40px;padding-top:16px;border-top:1px solid #e0e6ee;font-size:11.5px;color:#90a4ae;line-height:2;}
+  .to-top{position:fixed;right:22px;bottom:22px;background:#c62828;color:#fff;width:38px;height:38px;border-radius:50%;text-align:center;line-height:38px;font-size:16px;text-decoration:none;box-shadow:0 2px 8px rgba(198,40,40,.35);}
+  @media(max-width:900px){.side{display:none}.main{padding:8px 16px 60px}}
+  @media(max-width:680px){header.doc h1{font-size:18px}}
+</style>
+</head>
+<body data-page-node-id="rlCaJXioJf6Y6Gxj5yFq6T">
+
+<header class="doc" data-page-node-id="HAEjQT9A874FapjHbtGn6U">
+  <div class="in" data-page-node-id="jvP7E5d5TMuFMV0K7POrJG">
+    <div class="tag" data-page-node-id="Cpfr4N5DF7ICMzEkAqXkqY">内部研讨稿 · 第五版（修订）· 2026-09-08</div>
+    <h1 data-page-node-id="MP0RPs63NS2i3t0EaJVUMO">贷后业务承接模式探讨</h1>
+    <div class="sub" data-page-node-id="F17b0VqiCWRUCbQTiX0IGc">在"催收合规边界与行业定义重构"的背景下——从消金与互联网银行现状切入，看短账龄与中长账龄贷后怎么接、对谁负责、如何计价（客群不限于此，银行亦在开展短账龄贷后）</div>
+    <div class="meta" data-page-node-id="2cX6X3iqFs3Jpv9Wg5wsgf">探讨口吻、不结论先行 ｜ 客户口径与公开信息分列标注 ｜ 左侧目录可点击跳转</div>
+  </div>
+</header>
+
+<div class="layout" data-page-node-id="0ZRPjYGHHH6StleUzqJXUu">
+  <aside class="side" data-page-node-id="d26r2UI3XXsrPY0mFGj5hw">
+    <div class="side-h" data-page-node-id="BrtHiLcak0pDJIAH7wvind">目 录</div>
+    <nav data-page-node-id="QllLQn9N3NDkl2EZFEWY6q">
+      <a href="#p1" data-page-node-id="IRNvNQK4hAsiqcVR6qc882"><b data-page-node-id="88h0STo5idDCJPMr85uBFk">一</b> · 政策与监管环境</a>
+      <a class="sec2" href="#p1-2" data-page-node-id="HZ4ubr6dwMEcB6nZAApvKC">1.2 行为规范上升至法律层面</a>
+      <a class="sec2" href="#p1-3" data-page-node-id="CeS6knOnejUZ8HiV5WeGB6">1.3 治理与助贷冲击</a>
+      <a href="#p2" data-page-node-id="jojaALk3qFdASG2jXYurnw"><b data-page-node-id="ZpcyudCf02Rg4FRQjzBJUq">二</b> · 承接模式的判断依据</a>
+      <a class="sec2" href="#p2-1" data-page-node-id="e4Oz0MlDCCwr8ZL6Al3OA6">2.1 核心分界：是否为结果负责</a>
+      <a class="sec2" href="#p2-2" data-page-node-id="2HRJUWpGYMO7JnoB2RuBvb">2.2 短账龄承接形态</a>
+      <a class="sec2" href="#p2-3" data-page-node-id="lBrfaBYOB7JZao4kiFL03A">2.3 中长账龄（M3+）</a>
+      <a href="#p3" data-page-node-id="3N9X0pdLi4g0ZZGVxpj2oo"><b data-page-node-id="kbavCXYaBr1MBzDoJ0J82u">三</b> · 客户需求与现状</a>
+      <a class="sec2" href="#p3-1" data-page-node-id="g2riAUsahn6oPw8VM0ogXm">3.1 哪些机构会走到这一步</a>
+      <a class="sec2" href="#p3-2" data-page-node-id="IEExaq1Kf1PMZpovyXmPA3">3.2 尚诚 / 平安 / 幸福及其他</a>
+      <a class="sec2" href="#p3-3" data-page-node-id="fnmSM6ADj8SRtVJSV6qVY4">3.3 2026 年公开招标盘点</a>
+      <a href="#p4" data-page-node-id="STjAvSSnPDAsboMo8amDLO"><b data-page-node-id="CeCHvWP0ZCETIC1GPPLbSE">四</b> · 五种形态计价与责任</a>
+      <a class="sec2" href="#p4-2" data-page-node-id="KLkR62arIXXCP6OH1cRB62">4.2 与第二章的关系（总表）</a>
+      <a class="sec2" href="#p4-4" data-page-node-id="AdagVTVsLDSJckxMqjNhqH">4.4 社保与用工风险</a>
+      <a href="#p5" data-page-node-id="PcgN51JFLX4AFZIvig6ibb"><b data-page-node-id="LfzkTTqymouLipi7aZCy0m">五</b> · 从甲方产品看风险</a>
+      <a class="sec2" href="#p5-1">5.1 为什么先摸甲方产品</a>
+      <a class="sec2" href="#p5-2">5.2 要看什么、影响什么</a>
+      <a class="sec2" href="#p5-3">5.3 现有客户参考</a>
+      <a href="#p6" data-page-node-id="FENX0NG42FN2QTCgNrYK5m"><b data-page-node-id="6sztg55kTo0BUWYhzrVol7">六</b> · 商务条款与指标</a>
+      <a href="#px" data-page-node-id="awr4yCT87H1vzITYuxHmVF"><b data-page-node-id="UmnhU1wL9FFzI65C5KZeOG">写在最后</b> · 若覆盖至民营/股份行如何看</a>
+      <a href="#appendix" data-page-node-id="K2Xqo0Nu7VpRMEcvNRk5hq"><b data-page-node-id="QeNZfpf6CD8QRi5m5lPhwM">附录</b></a>
+    </nav>
+    <div class="side-note" data-page-node-id="nYGcGuyModDyg5BuPVBjE5">内部研讨稿；二（判据）、四（模式与成本）、一（政策含助贷冲击）为理解重点；客户口径仅供内部。</div>
+  </aside>
+
+  <div class="main" data-page-node-id="mBtPZAhdwwKSyZ8hCsMs6E">
+
+    <!-- 一 -->
+    <div class="sec s1" id="p1" data-page-node-id="hcpe3u98KVsh8cY2r8wuEb">
+      <div class="sec-head" data-page-node-id="KMiAVdEtfMKxMmThPUzpqI"><div class="no" data-page-node-id="n8Hjm24Jbrcm8GTCwbzpts">一</div><h2 data-page-node-id="LUex0pou3hlTzsiHJCcnhw">政策与监管环境：禁令、行为规范与治理出清</h2></div>
+      <div class="card" data-page-node-id="fqVEHQEQG42vxG3LTauB9A">
+        <div class="view red" data-page-node-id="QVISytJtTH4kcFMnHBG4y5"><b data-page-node-id="N8XHsBNFVFwQ7r3kp1UBHc">总纲判断</b>：<b data-page-node-id="uX5jtAtg7iuPvkreULLt2v">监管正在对催收的合规边界与行业定义进行系统性重构</b>：何为合规催收、责任如何配置（放贷机构第一责任人）、哪些账龄可外包、以何种交易结构外包、考核以何为纲。被重新定义的是合规边界与交易结构——行业困惑与新的供给机会都由此而来。本章从禁令、行为规范、治理与助贷冲击三条线展开。</div>
+        <h3 data-page-node-id="hVoLoN5VAHZCFoCKxJUqqh">1.1 M1/M2 委外禁令与责任边界</h3>
+        <ul data-page-node-id="nGsQxKZ1jvDBEAIpZhw2yf">
+          <li data-page-node-id="3iJe1IKaAEXqp7NUr9KJq1">时间线：窗口指导 → <b class="hl" data-page-node-id="qDBKYADxEmrTE3f9xHh4CP">2026-03-10 起正式执行</b>，属地"一司一策"约谈；配套《关于加强消费金融公司大股东监管的通知》。</li>
+          <li data-page-node-id="nyUVImzMPCGO9ygUWyEMol">责任条款三件事：放贷机构是催收管理<b data-page-node-id="5DdWPbFkaCW3wglUXaErVL">第一责任人</b>；不得以"外包"推卸责任；<b data-page-node-id="AdADN2KvJIbGHoh1egA3P2">不得通过复杂合同安排实现"事实上的外包"、不得外包关联企业</b>。</li>
+          <li data-page-node-id="eFHFmM0EqtWQ2wgg0COS7R">自媒体提及 2026-08 另有专项管控通知（重申 60 天内自主催收、外包仅接 M3+），无正式文件，待核实。</li>
+        </ul>
+      </div>
+      <div class="card" id="p1-2" data-page-node-id="KlRBb2AOaKTwzmCQUd0ZHw">
+        <h3 data-page-node-id="2ib5HqM0VAyCUj4uHpzg1s">1.2 催收行为边界与考核结构</h3>
+        <ul data-page-node-id="Te25VKcjyH5hQxPbTW27RS">
+          <li data-page-node-id="NHti0JvJ4e0hzFLISQJkU6"><b class="hl" data-page-node-id="TBI5BfGBi76iF5YxsncUyM">上位法信号（值得单独注意）</b>：2026-08-25《银行业监督管理法（修订草案二次审议稿）》提请全国人大常委会二次审议，<b data-page-node-id="Cz8dUIe8VgGoArYEuhst3K">首次在法律层面列举银行业金融机构及其从业人员不得实施的行为，明确"不得采取不正当手段催收"</b>，并规定从业人员侵权造成客户损害的、金融机构依法承担民事责任——催收行为规范正从部门规章、行业自律上升为<b data-page-node-id="WFyh37TBEsqZwEcr4HfAku">法律层面的禁止性规定</b>（公开报道口径）。</li>
+          <li data-page-node-id="4tddQzBsLBWUJsMvYrEoLI"><b data-page-node-id="SAvVoEcaAP6aQWKJ4BiQEu">监管与自律规则</b>：中银协《金融机构个人消费类贷款催收工作指引（试行）》（2026-01）量化红线（22:00–8:00 禁催、单日 ≤6 次、录音留存）+ 名单制 + 禁止转包 + 八大类禁止行为。</li>
+          <li data-page-node-id="3oM0s3U6sgPk1tFEMTshM0"><b data-page-node-id="Ut2BbYgXZ9l8T06FKmP2O6">标准与协议传导</b>：金规〔2025〕9号助贷新规（2025-10-01 施行）要求商业银行加强互联网助贷业务<b data-page-node-id="gEgzYVvFIN2DPM6b1TSJlY">贷后催收管理</b>，违规应纠正、严重应终止合作；属地监管已据此要求合作机构按催收国标 <b data-page-node-id="ztB2TXI2PKMmAdnpIiavMy">GB/T 45251-2025</b> 修订合作协议——催收规范通过银行与助贷机构的协议向下传导。</li>
+        </ul>
+        <p style="margin-top:6px" data-page-node-id="F5JfE5rxzKtIzhjGu8jSr8"><b class="hl" data-page-node-id="Wx8Fm3D5X165EVth6qA3AH">考核结构被重构——"不得简单以回收率为单一考核指标"</b>："唯回款论"的强指标合同失去规则依据，"低回收权重、高过程权重"反而更贴合监管导向——这正是"指标压力不大的合同"的规则来源。</p>
+      </div>
+      <div class="card" id="p1-3" data-page-node-id="d8YXMo8AOpuqbLyGzbH17r">
+        <h3 data-page-node-id="axV9wxww1WAjDN0Nw5VBgQ">1.3 治理与助贷冲击：放贷机构的处境与需求盘子</h3>
+        <p data-page-node-id="TwV0CtPGM6lXPhXtvTEjfS">理解当下环境，不能只看一条线。除常态化治理（扫黑除恶）外，<b class="hl" data-page-node-id="DKr0jHghSanw5Qbx4yt8kQ">助贷新规带来的行业收缩，是与催收行业直接相关、且可能更近的一条线</b>——两者同期叠加，才构成放贷机构当前的完整处境。</p>
+        <p style="margin-top:6px" data-page-node-id="HPRWqK3efC3SMxTG5Dlfxw"><b data-page-node-id="oJ6AGApqGmxwLgthbC78eP">线一：常态化治理在收口。</b> 部委层面是金融领域"黑灰产"违法犯罪集群打击（公安经侦 + 金融监管稽查联合，四大重点含信用卡不正当"反催收"中介；2025-06~11 首轮立案 1500 余起、涉案近 300 亿元，2026-04 部署新一轮）；地方层面是对暴力/软暴力催收团伙的收网执法延续（两个口径）。</p>
+        <p style="margin-top:6px" data-page-node-id="GJtvtCJKOpLvCI9zTCTKy8"><b data-page-node-id="FGDg7rlfZLxU9QeZ1jWkGk">线二：助贷新规落地，助贷平台普遍收缩。</b> 金规〔2025〕9号自 2025-10 施行，综合融资成本"24% 红线"、名单制准入、规模压降落地；头部助贷平台 2026 年中报普遍"利润大幅回撤、规模主动收缩、逾期分化"——上半年六家主要平台合计净利约 23 亿元、同比约 -72%（上年同期逾 80 亿元）：</p>
+        <ul data-page-node-id="DddZlfBttZ6QATKSo6qAEY">
+          <li>奇富科技：上半年营收 74.76 亿元、同比 <b class="hl">-24.5%</b>；二季度净利约 4 亿元、同比 -76.6%；</li>
+          <li>乐信：二季度营收 31.87 亿元、同比 -11.2%，净利 1.01 亿元、同比 <b class="hl">-80.2%</b>；</li>
+          <li>信也科技：二季度营收 34.03 亿元、同比 -4.9%，净利 4.27 亿元、同比 <b class="hl">-43.1%</b>；</li>
+          <li>小赢科技：二季度净利约 0.47 亿元、同比 <b class="hl">-91.1%</b>，91–180 天逾期率仍处 9.09% 高位；嘉银科技二季度由盈转亏（净亏约 1.8 亿元）。</li>
+        </ul>
+        <p style="margin-top:4px">（均为公开财报口径，2026-09 上证报、新浪财经等中报报道；一季报已更早显现同一趋势）</p>
+        <p style="margin-top:4px" data-page-node-id="sDbNysTNokYqyRMWgHm0yq">行业在主动处置不良：奇富 2025 年末折价处置超 74 亿元、信也经 AMC 批量转让约 35 亿元、小赢一季度出清超 20 亿元。（公开财报口径，2026-06 媒体报道）</p>
+        <p style="margin-top:8px" data-page-node-id="mHXYIn7wDMphttc6k25cEV"><b data-page-node-id="HOqZGSVeqq3HHjR0OJHGn8">两条线叠加，传导到各放贷机构，处境是联动的：</b></p>
+        <ul data-page-node-id="K4UHsAdB895bBOQ40bwIB0">
+          <li data-page-node-id="dW3II5X5E82I9SGVHcTFll"><b data-page-node-id="68D8p5QLNHu4pyigdP1t9M">银行</b>：助贷合作名单制收紧、综合成本压降、风险定价上移；对平台放款规模在收，存量风险暴露增加；</li>
+          <li data-page-node-id="UIe44JaKnULH4TR7u6ZcEH"><b data-page-node-id="E130GYyASUcdd8PyvKhDMg">消金</b>：短账龄被要求收回自催（自建不及则补人），部分在助贷资产恶化下<b class="hl" data-page-node-id="f2DANMnOeFsc4y2bZReeCk">收回渠道资产自行处置</b>（幸福拟收回约 50 亿助贷渠道资产即此类，客户口径）；</li>
+          <li data-page-node-id="XHp2Yd7TTxJ0H1zzvLHnbf"><b data-page-node-id="nHoLTRHiFZVE7FZAfdx1Or">助贷平台</b>：规模收缩、逾期上行、批量处置不良，反过来又把部分风险与资产推回资金方。</li>
+        </ul>
+        <p style="margin-top:8px" data-page-node-id="QKLBQEVEOPgvQE0cIqMPev"><b class="hl" data-page-node-id="ultAOzAlmgkRoh2ogmO0je">其一：前端在收紧、不良在增加。</b> 收紧面——新增放款放缓（尤其下沉与助贷渠道），未来 12–24 个月纯"新增逾期"案源供给或许在变少；增加面——存量盘子仍然巨大（商业银行不良贷款余额超 3.5 万亿元；31 家消金约 1.44 万亿元），个贷不良批量转让量 2025–2026 成倍增长、处置在提前。两头合起来看（探讨）：<b data-page-node-id="0NMvUDcb7ovgktWcesmViB">催收需求总额或趋稳、结构在变——从"增量新案的电催"转向"存量与收回资产（幸福类）的经营与处置"，对合规供给和处置/司法能力的需求是上升的。</b></p>
+        <p style="margin-top:8px" data-page-node-id="HT0Dx4yERe9UYfe3e2o07w"><b class="hl" data-page-node-id="UC8qO5ilwpQWwBjxXkIab5">其二：出清之后，竞争环境或许会不一样。</b> 供给或从"多而乱"走向"少而合规"：不合格者批量退场（累计千余家、微众 320→167），留下门槛抬高（资质、社保实缴、无违规记录、双录与数据安全、可审计）。竞争重心或许会从"低价抢单 + 高压拼回收"，逐渐转向"合规交付 + 交付稳定性 + 运营效率 + 消保权益"——甲方比较维度或许会从"谁的佣金低、回收高"部分转向"谁让合规答卷更安全、消保指标更稳、交付更可依赖"。这可能不意味着价格必然上涨，但劣质低价供给对定价的拖拽作用或许会减弱、可预期性或许上升。（良性竞争能否持续，或取决于甲方是否真把"合规"与"消保"做成硬门槛——这正是合规交付体系可以去主动卡位的地方。）</p>
+      </div>
+    </div>
+
+    <!-- 二 -->
+    <div class="sec s2" id="p2" data-page-node-id="BOGHjlv2JrfQXv8bHjatiA">
+      <div class="sec-head" data-page-node-id="WN6AwKaWMt5iLujFkkAjw9"><div class="no" data-page-node-id="BGQ3eyd9pczaDUfoA5eAtC">二</div><h2 data-page-node-id="YrAkgSG7cQBulCbqq6jiox">承接模式的判断依据</h2></div>
+      <div class="card" id="p2-1" data-page-node-id="p2Z0mkmUU1mpE1qa6HTzJh">
+        <h3 data-page-node-id="G4XebakxOII4o5QrJl7Nd4">2.1 一个核心分界：是否为结果负责</h3>
+        <p data-page-node-id="KRYD3c0EYFZI4icp5umIBO">行业里"驻场/外包/人力服务"名目混杂，判断一份合同<b data-page-node-id="sxrWcuGnVkcpESaIyAgw3f">是否构成监管意义上的"委外（外包）"</b>，核心分界只有一条：</p>
+        <div class="view red" data-page-node-id="jRQWDW1NCgxfZEqbA1irgL"><b data-page-node-id="CLKCwqZ9AH8hwdjURFKqiu">乙方是否对"回收结果"负责，并按回收结果计酬。</b></div>
+        <ul data-page-node-id="6bQejbqgVXXzktpAqmptIH">
+          <li data-page-node-id="Dk8k84DM8C5VXXHEFZlHPa">是 → 委外：M1/M2 被禁；M3+ 可做（佣金/完成率制），但承接方需进入甲方合作机构名单——"名单制"目前以中银协自律指引（2026-01）与头部机构实践为主，尚无统一的监管强制文件，或为趋势方向；</li>
+          <li data-page-node-id="kBXGXcnRKKdGSwN94CFEDL">否 → 人力供给：只对人力与过程负责、按席/人/月计酬，不构成委外，可用于短账龄补自催产能；</li>
+          <li data-page-node-id="HBkWOTgETx19z3x6tGWzbu">灰色地带：合同名"驻场/人力"，实际用评分把回收与分案量、结算折扣、续约强挂钩，把结果压在乙方——这是"事实上的外包"可能穿透的部分，也是合同设计的红线区。</li>
+        </ul>
+      </div>
+      <div class="card" id="p2-2" data-page-node-id="ApGQ6knJ1y1Zw8FYNl1kAT">
+        <h3 data-page-node-id="qYqpM0OHlunhsHiDFSowFI">2.2 短账龄（M1/M2）的承接形态</h3>
+        <ul data-page-node-id="8cc5Gx7kfFm4ZOxBcdIWxF">
+          <li data-page-node-id="8BmJYSkWmbIyrOpY0G90vg"><b data-page-node-id="VsVu32E6MksMY5ta0m5z5j">(a) 真驻场催收（结果责任在甲方）</b>：人进甲方体系、甲方管规则与结果、按坐席计费——最接近"自主催收产能补充"，外观最干净；对乙方是"纯人力供给"生意（样本：盛银公开招标，按初/中/高级坐席 × 折扣率，6 家候选）。</li>
+          <li data-page-node-id="pSe3QiVXNvljlwOcB7k24L"><b data-page-node-id="w0IVBAwufdWr5EPp2gPvm3">(b) 名义上的驻场/人力、实际由我方运营——同一个底层逻辑</b>：
+            <ul data-page-node-id="BuGSmRbAR7ltuGDqA3r8Gz">
+              <li data-page-node-id="TD9bak8rOugBidmZGISlYy">底层逻辑相同：合同写"驻场"或"人力服务"，实际作业在我方场地、或现场由我方管理，甲方有指标约束、但书面结果责任有限；按最严口径能站到哪一步取决于评分表与条款，值得逐单自查，不等于已在红线内。</li>
+              <li data-page-node-id="LBRNQGm0aeuwUuCDkF3Cgx"><b class="hl" data-page-node-id="Fcw9nF8pSQLRsAc3EM25xS">尚诚型（相对简单）</b>：坐席分级、按人数与服务时长计费为主，指标宽松、基本都能完成——乙方背的主要是"产能与过程"，回收结果压力小。</li>
+              <li data-page-node-id="Kge3ly2Yzdnl453gDKmIXL"><b class="hl" data-page-node-id="4zBUuHIQBRBpOqhXgjVp1R">平安型（相对复杂）</b>：合同已更换为人力外包，<b data-page-node-id="V9sapT9c8zOUD3VCFIkhDk">但实际仍按每月设定的考核指标（含回收类）进行考核计费</b>——合同名与计费逻辑存在张力：若考核与回收结果强挂钩，可能更接近"事实上的外包"的观察对象。</li>
+            </ul>
+          </li>
+          <li data-page-node-id="iGdkA2QycAfD43eV72Kf4S"><b data-page-node-id="zQvJfM25F3a6Su9q1puPJd">(c) 人力外包模式（结果责任书面留甲方、考核多维化）</b>：按在席人月收服务费（人头外服务费）或全包人头；规则/话术/分案由甲方审定，评分表把回收只作分案与续约参考，不直接按回收计酬（参考：中信 2026 公开招标——<b class="hl">最高限价 950 元/人·月为服务费口径</b>，薪酬用工另计；北京阳光已规划 2027 年催收人员服务外包、约 200–300 席。）</li>
+        </ul>
+        <p style="margin-top:6px" data-page-node-id="4mwta324gYxqsqeGEVBSOL"><b data-page-node-id="sfFEURrbQQInkADDPAC76m">小结与趋势参考</b>：短账龄的承接正越来越像"人力供给"——按席按月的人头钱逻辑在上升，回收结果越来越多留在甲方手里；对乙方这意味着<b class="hl" data-page-node-id="9A2BsE4rhFRv1rcjdUNwHd">产能同质化、单价受招标比价压缩，价值更多来自合规与运营效率，而不是催收手段本身</b>。</p>
+      </div>
+      <div class="card" id="p2-3" data-page-node-id="5zZnxbhN2Sr1CEDoGHoFrR">
+        <h3 data-page-node-id="Bfq8SDkakf70CikvmKTF2T">2.3 中长账龄（M3+）：按结果计酬仍可做，交付须合规化、或面临司法前置</h3>
+        <ul data-page-node-id="jgUJE0rmXvyoZyf7EmEdiu">
+          <li data-page-node-id="DTQQEi8uurMnALx1CuNDzp">委外通道未关：<b data-page-node-id="bdGL97dM7kPT6E1dBRKT1U">在监管语境下，结果付费（完成率/佣金）在 M3+ 及更长期限是"合规"的</b>。费率随账龄与回收率分档——公开招标实例区间参考：逾期 90 天内约 5%、91–180 天 5%–8%、M3 段电催 8%–10%、半年至一年 10%–20%、一年以上 15%–40%（以甲方询价文件为准）。</li>
+          <li data-page-node-id="0Z8THsCYDJ4G63v4AEgPge"><b class="hl" data-page-node-id="KiLZwBDlEvAU6FZkwg36AA">趋势参考：处置正在"司法前置"</b>——调解、赋强公证、诉讼、保全节点前移，公开采购里委外资源向律所、调解中心与司法服务机构集中（微众保留机构以律所、调解为主即旁证）。对承接方的含义是<b data-page-node-id="rp9hm0lSnySzKsGmy9X2d4">交付能力要跟着变</b>：从"打电话催"转向"司法衔接、材料组织、调解协同"的组合能力；纯电催在这段账龄的溢价或许会逐步走低。</li>
+          <li data-page-node-id="Cyth7cBfyIs3E0vrhiGkeg">同时，<b data-page-node-id="4QBznjLFiHr1oB3mR1Qib0">合规交付本身正在变成承接这类业务的准入门槛</b>：名单制、转包禁令、过程留痕要求下，不能合规交付的供应商，可能连入围的机会都越来越少。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 三 -->
+    <div class="sec s3" id="p3" data-page-node-id="0D8gbmVotzg2EmDxPY0Qgx">
+      <div class="sec-head" data-page-node-id="HlEBzxN5RB2OALaWzGUw2a"><div class="no" data-page-node-id="pK13A0BHA4afTVkdmzNbUW">三</div><h2 data-page-node-id="IBaLEERKVer5VNhf9JZNmR">客户需求与现状</h2></div>
+      <div class="card" id="p3-1" data-page-node-id="LH00k0Zywb7MtXyPFXSmMM">
+        <h3 data-page-node-id="qU1ZtvrnQDaeIYXe1DhBgi">3.1 哪些机构会走到这一步</h3>
+        <p data-page-node-id="7DApg0HcaYIA2eThAziBCB">监管把短账龄收回自营后，并不是每家都有现成的自催队伍。从现状看，会出现"需要外部补人/支持"境地的，大体是这么几类：</p>
+        <ul data-page-node-id="FdiyOsTFaDq9QlwnccYmBB">
+          <li data-page-node-id="QYvWLeIUrT8GU4pg0WjZH9"><b data-page-node-id="kekeuBwanFiSaxGUGaCuI0">消金（尤其中腰部）</b>：自营起步晚、助贷依赖深（苏银凯基约 91%、中邮约 74%、宁银约 70%，公开评级数据）；监管要求短账龄收回自营后，自建 12–18 个月未必跑得顺、催收费用占营收或从 20.65% 升向 30%+（行业测算口径）——不是不想自己做，是短期内还缺人手和体系。另有部分消金在助贷资产恶化下<b class="hl" data-page-node-id="MvKxdRRIkVCW5JvDkBgNY3">收回渠道资产自行处置</b>（幸福类，见 3.2）。</li>
+          <li data-page-node-id="SAsiTJFMAG5Ai1yEAePAvG"><b data-page-node-id="yb6b6LAu7S9w9bSiLhQLLs">互联网银行</b>：已收到窗口指导、短账龄收回自营（客户口径）。<b class="hl">行业合作名单整体在收缩，但原因可能多样</b>：被砍掉的或大部分是小型催收公司（违规风险相对高、双录与数据能力不达标者），属于"供应商清退/收紧"，不必然等于"自营化"——方向是名单在缩短，动因是合规清退还是业务结构迁移、各自占多少，公开信息尚难分辨，两者或许同时在发生。</li>
+          <li data-page-node-id="EkCb5dhdvaEtQDsFWdUmLc"><b data-page-node-id="ZF7gX0jFJ5WCyfGN1ytoYQ">银行（信用卡/个人贷款）</b>：不良承压 + 银监法修订草案把"不当催收"写进法律 + 助贷新规要求银行管好贷后催收——贷后管理压力在上升，对外部承接方的要求也在从"能催"转向"合规、可控"。</li>
+        </ul>
+      </div>
+      <div class="card" id="p3-2" data-page-node-id="vt4o18KMPa5NqK5sQmaCAs">
+        <h3 data-page-node-id="nz3QmClO9B4NjDupy5y7C9">3.2 尚诚、平安、幸福及其他</h3>
+        <ul data-page-node-id="vbKpr6KAdtgaVKkFSm8Ib9">
+          <li data-page-node-id="bG0VXHOvnmqZaWDJqExFP3"><b data-page-node-id="oaZwDnWn0DncyXkm5IqkiZ">尚诚（在做）：驻场坐席、指标宽松。</b> 纯自营产品、无助贷（客户口径）——数据与还款通道都在甲方手里，断链风险低，属最顺手的资产类型。形态为催收驻场服务合同、按初中高级坐席付费、指标无过度要求。<b data-page-node-id="0GESaVtuV3TM1JRCS1ovJr">推测</b>：既补自催产能，也修复其曾被罚（催收外包管理严重违反审慎经营规则）后的合规叙事。<b data-page-node-id="9xLVKU59Rhz07QQjWlriE1">风险点</b>：合规检查传导、单价年审吃毛利、评分表与免责条款措辞。</li>
+          <li data-page-node-id="XqHdehslHNAp4qHh6igGRo"><b data-page-node-id="Hf2g6imIgDUqE7C8h5hkbV">平安（合同更换中）：合同文本在换，结果付费逻辑未变。</b> 自营与助贷均有；产品线含小橙花、陆易花、金易花等；账龄 C–M3（C 为当期未逾期段至 M3；客户口径）。原有合作按"完成率"结费；<b class="hl" data-page-node-id="vEkAfgABnW9LGWCJfHPUqf">正在更换为人力外包合同——合同改人力外包，但实际仍按月设定的考核指标（含回收类）考核计费</b>。落在 2.2(b)"平安型"。<b data-page-node-id="K1tLCQ0rxP6ddU5Oe4HcAH">推测</b>：或形成"短账龄人力化 + C 段结果付费"并存。<b data-page-node-id="9TACdwiMMLy8PCJ3WB9hZd">风险点</b>：更换期断档、回收考核权重决定收入与定性的走向、甲方集团合规与供应商标准高（检查严）。</li>
+          <li data-page-node-id="tLBhxeGbJwarlHH4etFe18"><b data-page-node-id="aIINIT8sOBHWc6U00r7Kht">幸福及其他（在谈）：收回渠道资产、自营处置。</b> 拟收回<b data-page-node-id="WFV8MMnbMxDQM4Nc6VCBkg">助贷渠道资产约 50 亿元</b>（如乐信等）自行处置，据此<b data-page-node-id="XMr0kPpADEjVkF39mQLoKW">短账龄约需 200–300 席</b>（客户口径，已确认）。背景正是助贷平台中报普遍承压（见 1.3）。<b data-page-node-id="isleBYR21EnE6spZtj4NiB">推测</b>：收回资产按账龄分层处置——M1/M2 段自催+补人、更长期另委外或批转。<b data-page-node-id="046wTPU5A7U1F2WElgIPv4">风险点</b>：资产质量与账龄分布、数据随迁完整度（全催/半盲催）、一次性铺 200–300 席的空席风险需分批到岗 + 保底条款对冲。</li>
+        </ul>
+        <table class="tb" data-page-node-id="KgJPxjCNoy6GTmPWE5RNee">
+          <tr data-page-node-id="kHoNvo33c9wDjxzsIEB54m"><th data-page-node-id="JJ2WyBzJAcsMeXVlAD2tz7">客户</th><th data-page-node-id="EBI7KLvTlkwEDKEhX8VFf2">产品结构</th><th data-page-node-id="wKEn8X8y9im8dVFXPOZ4R8">承接形态</th><th data-page-node-id="ZiKLCt7ZTZhTK3KpYXB171">关键推测</th><th data-page-node-id="MH8tzvFEbwN5WoRbsRXB1r">主要风险点</th></tr>
+          <tr data-page-node-id="4yPmW39qE6vM2piPUxAFUA"><td class="k" data-page-node-id="EE6qzRXQnGPsDGZfrkMlHO">尚诚（在做）</td><td data-page-node-id="2gAUmaXBNp6UwbyLxBsEKm">纯自营、无助贷</td><td data-page-node-id="yx36Ems5lwkO9xpibTjWGY">驻场坐席制（初/中/高级）</td><td data-page-node-id="eo4P0Vm7ue6RFZjd0kPhI0">补自催产能 + 修复合规叙事</td><td data-page-node-id="fh5UcLMMgrVcmr8QqvZsoo">检查传导；单价年审；结果责任措辞</td></tr>
+          <tr data-page-node-id="R03cyGHDPmTf4ntQU9CEPf"><td class="k" data-page-node-id="S8gniVJgJtgFPUS2OECOoG">平安（合同更换中）</td><td data-page-node-id="FtQ3f8F9zzFzHoYbt5cC7k">自营+助贷；小橙花/陆易花/金易花；C–M3</td><td data-page-node-id="J9w2OS7uoTfcz868lloU4A">实质仍结果付费；合同文本更换为人力外包格式</td><td data-page-node-id="EU90EkKCDc6PcRFDHbt53l">短账龄人力化 + C 段结果付费并存</td><td data-page-node-id="8RERjHhuZes43YMgbxsraM">更换期断档；回收考核权重；甲方集团合规与供应商标准高（检查严）</td></tr>
+          <tr data-page-node-id="Us0iogBBi6vp3CD27shPYE"><td class="k" data-page-node-id="NU1lhMc3oRIvRzrzvnbpMr">幸福及其他（在谈）</td><td data-page-node-id="Ot4osDdp6pHdTo4A7pwlV2">收回助贷渠道约 50 亿（如乐信）</td><td data-page-node-id="6XSqxPk9oD4crBYWoIo9Lo">待定（短账龄 200–300 席）</td><td data-page-node-id="xtkTZHt0e8ZKZCTbpx5WGW">M1/M2 自催人力化先行，长账龄另处置</td><td data-page-node-id="QXyA6uHQdP7hCBrOrcVxFe">资产质量与数据随迁；一次性铺人力</td></tr>
+        </table>
+        <ul>
+          <li>三家状态不同（在做 / 合同更换中 / 在谈），呈现的形式也不同：尚诚是<b class="hl">最接近"纯人力"的驻场坐席</b>——按初/中/高级坐席计费、指标宽松；平安是<b class="hl">合同文本换成了人力外包、实质仍按每月考核指标（含回收类）计费</b>——结果付费逻辑未变；幸福是<b class="hl">把渠道资产收回来自己处置</b>——先补 M1/M2 自催人力，长账龄另行委外或批转。</li>
+          <li>各家走到这一步的原因也不一样：尚诚有被罚后修复合规叙事的背景；平安要应对集团对合规与供应商管理的严要求，用人力外包格式重构合同文本；幸福面对的是助贷渠道资产质量下行（见 1.3），与其依赖渠道处置、不如拿回自管。</li>
+          <li>能观察到的共同点仅此一条：在"短账龄不得委外、须自主催收"的约束下，<b class="hl">缺自催产能的机构都在用人力/驻场这类形态补人</b>。但形态相近不等于实质相同——合同文本、计费方式、考核权重各不相同，落在判据（2.1）里的位置也不一样：同一类"人力外包"合同，有的接近纯人力供给，有的实质仍背着结果。对承接方而言，与其按合同名称归类，不如逐单看<b class="hl">结果责任实际落在哪、钱按什么算</b>。</li>
+        </ul>
+      </div>
+      <div class="card" id="p3-3" data-page-node-id="r7652zmxOX4UXC6RwOCVMm">
+        <h3 data-page-node-id="2LOYC3FFF2Fj3zB40aQFpC">3.3 2026 年公开招标盘点</h3>
+        <p data-page-node-id="3XJWID0ksUxD38MSCB5VOw">短账龄这一块的盘子没有消失，变的只是承接模式：从"结果委外"转向"人力/驻场供给"。2026 年已公开与在途的需求如下（检索截至 2026-09-07）：</p>
+        <table class="tb" data-page-node-id="7WdmfRXuwq1DMUKxmzDrzl">
+          <tr data-page-node-id="XjPaLIyu5bf9rjTHRJA8BL"><th data-page-node-id="tLzyWFrJu0wd6uH9DmSN2Y">机构</th><th data-page-node-id="87ZELAjHByZQ7lq5EyuWR5">项目形态</th><th data-page-node-id="H34xHeJERgiTaGxWsp8w6g">进展</th><th data-page-node-id="WwimAmrJY1xWISLlvGf36B">报价/结构</th><th data-page-node-id="xNLF6j8oUMfEBHoqrqzH5Y">口径</th></tr>
+          <tr data-page-node-id="N6ZagOl293YqvQahzbbH9u"><td class="k" data-page-node-id="nIXnGDnnPXBOL0nXXbseFH">中信消金</td><td data-page-node-id="vbVr0HKFX3CshFph3YLFyA">催收业务人力外包</td><td data-page-node-id="RDgwHXHsvDh1TZZljTz0sI">2026-08-31 在招（9-11 截标）</td><td data-page-node-id="uGiroRIlrFyGULeBDn6qhY">限价 <b class="hl" data-page-node-id="hfJbG2rGACXqejvtygqu1t">950 元/人·月（服务费，基于包人头以外的费用，薪酬另计）</b>；1 年期；2 主 2 备</td><td data-page-node-id="G6OMRRq7TavpGZCtBPQgFg">公开招标</td></tr>
+          <tr data-page-node-id="I9tzScYXU93xa04a71p2B7"><td class="k" data-page-node-id="gj3WpMVVRrvGrzDYdaDE0i">中原消金</td><td data-page-node-id="RtPd77lQsamMuEhwJu5BdS">驻场外包（催收/电销/审核/客服/行政）</td><td data-page-node-id="wnsOihgFSlYfDhIQXCjQN0">2026-04 已出结果</td><td data-page-node-id="bQBpRfbKPFWHKRTzC1XfiW">入围 8 家；催收岗 2150–2690 元/人·月；3 年期</td><td data-page-node-id="ov5jHw6MBQbHIU3p1GK90c">公开招标</td></tr>
+          <tr data-page-node-id="YbiKCJKBXLHmhnyPhbuIXQ"><td class="k" data-page-node-id="2kp8iaErvotsBpHsjXUBxp">盛银消金（沈阳）</td><td data-page-node-id="HyQm7z9aTJS528CN5hOgDn">催收作业人员人力外包</td><td data-page-node-id="dc7WyEh9ruR0BDEEPLp3Fw">2026-07 候选人公示</td><td data-page-node-id="z1Nww96HY1yNgFpiiei8gM">按初/中/高级坐席 × 折扣率（6 家候选）；1 年期</td><td data-page-node-id="6ScYfbeAqWglp4jM0PRG6Z">公开招标</td></tr>
+          <tr data-page-node-id="SjrrSXson7QFGQZcAvrU34"><td class="k" data-page-node-id="eUQLDzYnTTcczE9hxPvJ4D">尚诚消金</td><td data-page-node-id="ycPYuoD3NMntWErSh3rJRh">驻场坐席（我方承接）</td><td data-page-node-id="Xs1CT80STY0QQhUwZTsW3l">履约中</td><td data-page-node-id="MMcEo4K9KhVkDy7SOByPpF">初/中/高级坐席按月——我方活样本</td><td data-page-node-id="pRFifmLoLWdQW4B06FGH89">客户口径</td></tr>
+          <tr data-page-node-id="77ow0uAYPXhlwbENDR2Yxm"><td class="k" data-page-node-id="Lo8TgFjgZDsDbqc14e5QEL">幸福消金及其他</td><td data-page-node-id="BvQSO9TWEGydz6hbzM0e97">收回助贷渠道资产自营处置</td><td data-page-node-id="ZQnirkK2fSATVp0dMEVygT">在谈</td><td data-page-node-id="MMACEJYPE1XAzUsq1wYBlG">约 50 亿元资产；短账龄 200–300 席</td><td data-page-node-id="eraxHJG5HwSLSextXITkGd">客户口径</td></tr>
+          <tr data-page-node-id="6XronK4a3ahRqOwPSU6RO1"><td class="k" data-page-node-id="aVxUrM64mzy0lD1NfMtHsE">北京阳光消费金融</td><td data-page-node-id="RgaQXuuQV0YAyVmqgPHXNU">催收/业务条线人员服务外包</td><td data-page-node-id="bnkqUS8HvAMjSvyxryi8w0">规划中</td><td data-page-node-id="JBUEdK1iL7jKf8fdipjYiN">预计 2027 年正式启动，约 200–300 席</td><td data-page-node-id="ynrDLsEVnuiW1DgyUFRmVI">客户口径</td></tr>
+        </table>
+        <p style="margin-top:6px" data-page-node-id="YjDlaEGiRsX4fniFo8jGHU"><b data-page-node-id="Yr9CkdmH8qd9K8B2mVDQix">看价格要注意口径</b>：中信 950 元/人·月是服务费（人头薪酬另计），中原 2150–2690 是催收岗人月报价（含什么需以招标文件为准）——两边不直接可比；投标前先书面澄清薪酬/社保/场地/系统四拆分。委外型对照（M3+ 仍活跃，公开招标）：中信 50 家库、中银 150 家库、北银 10 家/1800 万、中原 30 家、兴业 32 家续约，银行侧邮储/工行/建行等持续。</p>
+      </div>
+    </div>
+
+    <!-- 四 -->
+    <div class="sec s4" id="p4" data-page-node-id="eBeCkE5pP9vwWf8jrFqc6A">
+      <div class="sec-head" data-page-node-id="mwnpWvLYzrnOz6awukXMO0"><div class="no" data-page-node-id="ryiTEPryqyesLikoA8694G">四</div><h2 data-page-node-id="EwP1e4Zj5myXarhNgbACqU">承接模式怎么选：五种形态的计价与责任</h2></div>
+      <div class="card" data-page-node-id="MRy7xTJJDTqV5CH0scoWmn">
+        <h3 data-page-node-id="gHolYsBuy4EOMmcTg1n7Ix">4.1 先分清：这笔合同是"委外"还是"人力供给"</h3>
+        <p data-page-node-id="w77EYyOYkcBBn4V6oKw9ne">判断标准不复杂，就回答两个问题：① <b data-page-node-id="SmLbAUTs6hfrabFp1SIbfx">回收结果谁负责</b>——写在合同里的结果责任归属，不是口头约定；② <b data-page-node-id="4E3sAmivOscU9SFfMZ9Ruc">钱按什么算</b>——按回收/完成率浮动计酬，还是按人月/人头固定计酬。两个答案一组合，落在下面哪一格就清楚了：</p>
+        <table class="tb" data-page-node-id="NAJoj7TBRFMC4zsQQ9JMdB">
+          <tr data-page-node-id="eq50h0oNoGZviqzkGIsRBg"><th data-page-node-id="NAiKJJBRQucwXOqPnKi1zV">结果责任在谁 ↓</th><th data-page-node-id="9AQBqQ5UWK4pRYU2Xei2Ry">按回收/完成率计酬</th><th data-page-node-id="2rUZq20H1a9fXtXZmOL1Dt">按人月/人头计酬</th></tr>
+          <tr data-page-node-id="YcpcMg6LdklFwUwlha0KqV"><td class="k" data-page-node-id="dob4PF5URU6ACtTd9dBpUU">乙方（外包商）</td><td data-page-node-id="bNAPyfj3c1rNlBlqRfU7UT">① 委外（A，佣金制）：M3+ 合规；<b class="hl" data-page-node-id="8jwDgxColcM3FWKpOVAKmR">M1/M2 禁</b></td><td data-page-node-id="YbrzcwGupDebQ8qD3iua92">③ 高危变体（E）：合同名写人力、实质乙方背结果——短账龄下就是"事实上的外包"，穿透检查对象</td></tr>
+          <tr data-page-node-id="xfk9BnlYb3q6mVjWDgNPok"><td class="k" data-page-node-id="mgWSLgCchGQeh86jeQN77D">甲方（放贷机构）</td><td data-page-node-id="68iHESQTrT9e0eEUe3s6lW">② 很少见：甲方自己背结果却按回收付钱，逻辑上不会这么签</td><td data-page-node-id="57zZNLYm9pvlBOoc75BV2g">④ 人力供给（B/C/D，驻场/人力外包）：不构成委外，<b class="hl" data-page-node-id="TGOzytwydHGWxIDDUi5jCi">短账龄可用</b></td></tr>
+        </table>
+        <div class="view" data-page-node-id="ifN0caP8cYFlafE1z6HRJX"><b data-page-node-id="228ofaN7BSwQ1EDvoDhfgA">读表方法</b>：这张表不是罗列模式，而是一张"合同归类判据图"。横轴问"钱按什么算"，纵轴问"结果责任在谁"；把任一份合同的两个答案放进去，就落到四格之一——①标准委外（M1/M2 禁、M3+ 可做）、④人力供给（短账龄可用）、③高危变体（写人力背结果，穿透对象）、②逻辑上不出现。目的是把"是不是委外"从凭感觉判断，变成两个问题定位，不被合同名称带偏。</div>
+      </div>
+      <div class="card" id="p4-2" data-page-node-id="L9JSwXaufmBZrHYNxL0n6g">
+        <h3 data-page-node-id="EXRBIUUV1jOAmSRjuD6qUm">4.2 五种形态与第二章的关系</h3>
+        <p data-page-node-id="BWzAvozojrkElWCTbnpqwZ"><b class="hl">先说明为什么会有两套名称</b>：2.2 只站在短账龄（M1/M2）的立场，列的是"禁令之下甲方还能签的三种合同样子"；本章把视角放宽到<b class="hl">全部账龄</b>，把行业里能见到的交易结构都排出来——所以比 2.2 多了 A（委外，只适用 M3+）和 F（过渡安排，尚在讨论）。两套名称说的是同一批合同，对号入座如下：</p>
+        <table class="tb" data-page-node-id="15JfgYaHgOD0X3Uk5VndMW">
+          <tr data-page-node-id="LlDPG2Ljt1jAqeaGIyZIJT"><th data-page-node-id="FaHcHdsCUg6kCVxx3ONVEw">本章形态</th><th data-page-node-id="ZpIvb6X6FyCE4bGLhoBLli">关键点</th><th data-page-node-id="4DrzV101d5JTB1CITRx3XC">与 2.2 的关系 / 适用账龄</th></tr>
+          <tr data-page-node-id="ZKaC7snLxkroWMmK1mY8Na"><td class="k" data-page-node-id="HzGqJqiqzXqG8TjJxOanGh">A 佣金/完成率委外</td><td data-page-node-id="BmQ556pMR9w5a17Y2qvHDb">对结果负责、按回收计酬；赚回收的钱</td><td data-page-node-id="htWnt7kNFpbbvBeGpM0PKH">对应"委外"，<b data-page-node-id="Zn7wyjhSewgjFbTdMhOBrs">M3+ 及更长期</b>；M1/M2 禁</td></tr>
+          <tr data-page-node-id="2gQPzszPhAXqUCRYbAKVq2"><td class="k" data-page-node-id="JEugfXHkHw78SlWQQPCXxB">B 真驻场催收</td><td data-page-node-id="rvczsoTRm52EPwvUGUuqlj">人进甲方体系、甲方管规则与结果、按坐席计费</td><td data-page-node-id="7gVHwiCKyf3jLLdbBq8Ydf">= 2.2(a)；短账龄可用</td></tr>
+          <tr data-page-node-id="HqXxuQvWEEiDbPGaMhpr7G"><td class="k" data-page-node-id="SWrb5MG9BU6RVPhY8pRQOR">C 人力外包·服务费制</td><td data-page-node-id="bADDisXC6aYx4Bi6cXxt1L">按在席人月收服务费，薪酬社保甲方另计</td><td data-page-node-id="CfCzjhlv0gsV9nA2oVc18i">= 2.2(c) 服务费形态；短账龄可用</td></tr>
+          <tr data-page-node-id="eeeKSxJ7x9LlUfZgdjZFRL"><td class="k" data-page-node-id="eViSYkwm0P9nefrdTNcxeA">D 人力外包·全包人头制</td><td data-page-node-id="AtW8DHbVI5LsLRWv6waYV6">单价含薪全包，成本上涨乙方自担</td><td data-page-node-id="niWFB4np5ZCcTFVUbMuLBa">= 2.2(c) 全包形态；短账龄可用</td></tr>
+          <tr data-page-node-id="OOr45dweA3Gzt0a4BsU7Qd"><td class="k" data-page-node-id="c4j7CuhFgg22cbyF1wkBCx">E 假驻场真外包</td><td data-page-node-id="An5ayDkciliCzQGVhZj3tj">名义驻场/人力、实际乙方场地+管理+背结果</td><td data-page-node-id="Kmr4eZJmoBVn0N9jRiOM8p">即 2.2(b) 平安型的风险方向；<b class="hl" data-page-node-id="kHhhuMV6vS7sOApfBqHaZM">远期受监管穿透检查影响</b></td></tr>
+          <tr data-page-node-id="9IdiJjAy89EFGA3fLwUDIu"><td class="k" data-page-node-id="NXvFaED8dpvJ2MwrDhkhEN">F 混合式（保底人头+过程激励）</td><td data-page-node-id="Rw1fuZ9wVcEfhuuUExJqJF">保底人头 + 不挂钩单户回收的过程激励</td><td data-page-node-id="iMrV1H6FWhvmI5CFtcCMqh">过渡形态，讨论点</td></tr>
+        </table>
+      </div>
+      <div class="card" data-page-node-id="3DhuME95MB9CbNNclndri4">
+        <h3 data-page-node-id="AnBbe58giX9mseO0bTXYee">4.3 五种形态逐个拆解</h3>
+        <ul data-page-node-id="17rGUPlBquG0Q6pi9HjQ37">
+          <li data-page-node-id="2P5dsvexHm3FHb4tg97a89"><b data-page-node-id="If8X6FUdnYpUtxECYz6GZQ">(A) 佣金/完成率委外</b>：对结果负责、按回收计酬，M3+ 合规。乙方赚回收的钱，波动大毛利高；名单制、多维考核、违规传导。<b data-page-node-id="UAA2PXfkcmFMA0tvbY9XJM">这一模式受大环境影响最深</b>：常态化治理下，作业红线与刑事传导让"以压促收"的空间收窄——红线行为不仅被监管处罚，还可能升级为个案刑事查处并连坐甲方；做 A 的门槛从"能催"变成"能合规地催"。</li>
+          <li data-page-node-id="42BOZyyBHijUIVmr7GSAnP"><b data-page-node-id="aC3CXeoF3lh4PjPY7jBA1z">(B) 真驻场催收（坐席制）</b>：人进甲方体系、甲方管规则与结果、按坐席计费。乙方赚人头钱、几乎不背回收；合规最干净，单价受甲方预算约束。<b data-page-node-id="jVWGoyhBTOyCxRIcNw9FnH">关键点</b>：坐席分级与单价、甲方提供工位/系统/线路、结果责任条款建议归甲方。</li>
+          <li data-page-node-id="ptNtGa16T7vTQQhGY8LSBV"><b data-page-node-id="jATysVJ5yuguAwNxv24c5F">(C) 人力外包·服务费制</b> 与 <b data-page-node-id="57C2Jgq7vSQvfXoULfpUGq">(D) 人力外包·全包人头制</b>（最容易被混，讲清）：
+            <ul data-page-node-id="XwbutHengird2EqSjaFuY4">
+              <li data-page-node-id="bdU0DIiDTLPiDGMHqP8MCd">计费内涵：C 的单价≈服务/管理费，薪酬社保由甲方另行核定——乙方不背薪资与社保成本波动（中信 950 即此类锚）；D 的单价＝含薪全包（工资+五险一金+福利+招聘+场地+管理+税），成本上涨由乙方自担。</li>
+              <li data-page-node-id="mIIB7zFfEy2xxlp9oRCqdo">风险结构：C 的风险集中在"人效与空席"；D 还要背"成本上涨"与招聘流失成本。</li>
+              <li data-page-node-id="hV7W61k3E5uc0NGWLm7jRU">毛利形态：C 薄而稳、靠规模与管理效率；D 单价高、毛利空间大，但必须设调价联动条款。</li>
+              <li data-page-node-id="EFJAuvLnJAECe1rh2MPc3g">报价必问：薪酬谁发、社保在哪、基数按下限还是实缴、场地系统谁出——四拆分明了，C/D 才分得清。</li>
+            </ul>
+          </li>
+          <li data-page-node-id="ihRsTPwJkgDKC38EhRKAED"><b data-page-node-id="pZxI0DMhUaAcfQzEClClFa">(E) 假驻场真外包</b>：名义驻场/人力、实际乙方场地+管理+背结果。落在短账龄就踩"事实上的外包"红线；即使单价诱人，也需评估被穿透后的责任与处罚风险——新签合同建议谨慎，存量合同逐单自查去留。</li>
+          <li data-page-node-id="XxQPj8vGZQ1ae8nO9Avwtt"><b data-page-node-id="bkFKdweAAP7hBXTU2ij1z5">(F) 混合式（保底人头 + 过程激励）</b>：保底按人头 + 不挂钩单户回收的过程激励（合规质检/联系率/投诉率达标奖励）——或许是结果付费与人力付费之间的过渡形态，也可能是未来折中的主流（讨论点）。</li>
+        </ul>
+      </div>
+      <div class="card" id="p4-4" data-page-node-id="VQ7Lxsztwj7mlHTQhuhFcu">
+        <h3 data-page-node-id="cIj8GW9lScCO73tTAPq8g2">4.4 人力成本与用工风险（2026 政策口径）</h3>
+        <ul data-page-node-id="UWC3XpZY4yJQ20FjE2Dh3w">
+          <li data-page-node-id="ZQ3tphayVCDRMS5z41Mcl7">坐席成本的大头是现金薪酬 + 社保公积金（企业负担），其次招聘、培训、场地、合规摊销。<b class="hl" data-page-node-id="J37uXtg5bCtLL8qnpo35hQ">社保与最低工资是 2026 年最大的成本变量</b>：
+            <ul data-page-node-id="5wW37Q0RclyqHSnMWJrjMB">
+              <li data-page-node-id="3LkbhS9KVHouHDZjnrFn7f"><b data-page-node-id="eDbUQlsCHZDCOvicYJU10Y">社保调基</b>（2026-07 起）：北京下限 7270 / 上海 7546 / 河北（养老）4076 等，多数省份下限增速回落至约 1.5%（公开调基公告）；</li>
+              <li data-page-node-id="ZHZH2LZTpSHkbU8sVuWDQP"><b data-page-node-id="ENTYDvTA3VZfFgeZbs0cEH">最低工资集中上调</b>：2026-07 起 15 省同步调整、平均约 +5.9%（上海 2690→2850、北京 2420→2600）——直接推高按最低工资计薪坐席的成本与社保/公积金下限（公开政策数据）；</li>
+              <li data-page-node-id="EJvamqleEmmZNLxx9DZyFc"><b data-page-node-id="NN8l2Ziob6MsBe2GXOtVLY">社保征管从严</b>：国家税务总局 2026 年第 10 号公告（6 月起）将社保费检查与税务检查文书同步；试点监测"社保基数夯实率"——低价"按下限漏缴"式外包的合规风险日增，甲方也连带（公开政策文件）。</li>
+            </ul>
+          </li>
+          <li data-page-node-id="oSNWBC6i078kINJFFJxdgD"><b data-page-node-id="uChPKIcyfAKRmp8RSdyXr2">报价含义</b>：全包人头单价必须内嵌"社保基数/最低工资年度联动调价"条款；测算按参保地基数与实缴口径做底线，不把漏缴当利润来源。</li>
+        </ul>
+        <p style="margin-top:6px" data-page-node-id="FVD8Ae9HyFlyQXgnwD7rSp"><b class="hl" data-page-node-id="LAvwDvbp9WeXJaW0OXdB8N">除成本外，人力外包/驻场还有劳务与用工层面的风险，同样要单独看：</b></p>
+        <ul data-page-node-id="5G09yK1JxZDcNIAJlAFw51">
+          <li data-page-node-id="zweI02SZrgKFzCYtmDqbHB"><b data-page-node-id="awAhdU3MI6MfW7o0jjkaRL">资质与许可</b>：人力外包须持人力资源服务许可证（劳务派遣另需劳务派遣经营许可证），招标普遍列为资格门槛（中信、中原招标均要求）；无证承接或"证照不符"是资质合规风险。</li>
+          <li data-page-node-id="uk3JSIOSgT0XQjksCfEpkL"><b data-page-node-id="lxu3tLM7W2ZRpLl3tOAkC1">外包 vs 派遣的定性风险</b>：同样是"人进甲方职场干活"，业务外包与劳务派遣在监管上是两回事——若作业受甲方直接管理指挥（排班、话术、系统、考核全由甲方管），即便合同写"外包"，也可能被认定为"变相劳务派遣"甚至穿透用工关系；反之把劳动关系明确留在乙方、按项目/人月结算、管理与考核按约定执行，则更像业务外包。留痕（管理权归属、考核流程、结算方式）是自证定性的关键。</li>
+          <li data-page-node-id="31R84QjvEirjnAcJztoxFf"><b data-page-node-id="fGw2m2pDBbyXRcDyFxj8PW">用工连带与责任</b>：社保漏缴/工伤/劳动争议若发生在驻场人员身上，甲方可能被牵连（尤其被认定事实劳动关系时）；合同应把"人员劳动关系归属乙方、甲方不构成用工关系"写清楚，并约定争议处理与费用边界。</li>
+          <li data-page-node-id="Ks3RNt4f3IlZZgPVISAbhI"><b data-page-node-id="Zbh99acqtGenCxDK40ZJrS">同业禁止与数据合规</b>：驻场人员接触甲方客户数据，须约定保密、数据不落地（不拷贝/不带走）、离场交接与脱敏；人员流动到竞对或自营业务时防数据随人走——甲方现在查得很细。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 五 -->
+    <div class="sec s5" id="p5" data-page-node-id="ObJbTntvYqMIZbYn6ffwRe">
+      <div class="sec-head" data-page-node-id="jaq2q3hl15hCl1ehbQ3is6"><div class="no" data-page-node-id="CcV57leykpCvhSMEZ7WkLC">五</div><h2 data-page-node-id="ptlqz42bS2eoZxtDHSh6eH">从甲方产品看承接风险</h2></div>
+      <div class="card" id="p5-1" data-page-node-id="DNFZUOvL4oXRQq1qHM9VJI">
+        <h3 data-page-node-id="bo6TTGp3spreCs34TstcRh">5.1 为什么先摸甲方产品</h3>
+        <p data-page-node-id="ftLBwIRVElMI3f2iVHr3pb">风险其实藏在两处：一是资产本身好不好做（账龄、质量、数据全不全），二是合同里责任和钱怎么分（谁背结果、怎么考核、怎么计费）。这两处的根源都是<b data-page-node-id="7gjBwF306bx5dBejYDEoeo">甲方卖什么产品</b>——自营、助贷还是收回来的渠道资产，直接决定数据在谁手里、责任算谁的、账龄长什么样。所以接单前别急着算人头，先把甲方的产品结构摸清楚，再谈价。</p>
+      </div>
+      <div class="card" id="p5-2" data-page-node-id="UFssNUtBwFWIAMQeIkmg5r">
+        <h3 data-page-node-id="lB1W7hEyIitjKuEN8AfGhd">5.2 要看什么、影响什么（清单）</h3>
+        <table class="tb" data-page-node-id="rjGGTdptpthQ8zfNFwVqfU">
+          <tr data-page-node-id="KWTGjKfrVbl2UzXjjAhhZX"><th data-page-node-id="gXMiN8qtp6GiZJ36RL1XZy">要素</th><th data-page-node-id="kLDlWRSfrRFZwpkebbCKMO">要看什么</th><th data-page-node-id="l4A1QaPnr8pCcYDgKjHjL3">影响哪类风险</th><th data-page-node-id="kRaJ8MVdfcDYAe3ICewAyi">尽调动作</th></tr>
+          <tr data-page-node-id="bzM3jdv1ubRGdAGWf5qWrh"><td class="k" data-page-node-id="CkEMxb6BXzFYvJG1ExFmcC">产品线构成</td><td data-page-node-id="vkPoPmCdJbCUnCC2sKQ4Uu">自营/助贷/收回资产占比、分产品余额</td><td data-page-node-id="3kWZ4dMVD9SCRBaqPaLM2q">数据可得性、回收预期、责任归属</td><td data-page-node-id="uwF2xYkevHHKzfrj44PYBu">索要分产品资产结构表</td></tr>
+          <tr data-page-node-id="D1AzKxyx5qatP8eIgZmokV"><td class="k" data-page-node-id="vSRdMd2eExxnddVJlF5V7g">客群与件均</td><td data-page-node-id="7Eh0ZV1Wi6JmnZpR8JawWd">客群定位、单均余额</td><td data-page-node-id="LziBk6A1evB3CD35kYHYCC">回收难度、投诉画像、刑事敏感度</td><td data-page-node-id="NJEHhg2eySDK1aGJe7fFxc">看放款政策与历史回收率</td></tr>
+          <tr data-page-node-id="tGHSxOnjSXTqwYxfEfEGbr"><td class="k" data-page-node-id="atPhW2SbahzhngEQh6EE2j">渠道与场景</td><td data-page-node-id="kpWDYTOZhHsujTVJDUKbuf">线上 APP/场景分期/渠道导流</td><td data-page-node-id="PvsJviO0aGYZb2XUi4v7po">数据断链（联系人/催收记录在谁手里）</td><td data-page-node-id="liDc2sOuR62xM0gXzGJtyk">确认数据归属与随迁安排</td></tr>
+          <tr data-page-node-id="GF56Jz5tpSE0QLFkwGOWWF"><td class="k" data-page-node-id="eVT3nV0v300B4KvDmh36rZ">账龄结构</td><td data-page-node-id="oafA9GbBjFLzXvElov19NJ">M1/M2/M3 及更长的分布与滚动量</td><td data-page-node-id="qxJwkVDHZvn02v6iFnldLI">人力需求结构（补人 vs 处置）</td><td data-page-node-id="GmqbmioMJqRQoE7x8OBdSJ">按月滚动分案量</td></tr>
+          <tr data-page-node-id="VyUHZzp0rtImXzCeFq7fxH"><td class="k" data-page-node-id="rLji0rjlEXWwlHjizvGbBU">催收记录连续性</td><td data-page-node-id="JooXJtDoVyBClNEWryHXh9">历史是否断档、换手几家</td><td data-page-node-id="nSNzEIaHCeSnJ0ndHBViY7">"半盲催"、回收可预测性</td><td data-page-node-id="UQzc6QdhwYW7ZsDfx9AH4a">抽样验证失联率与首联率</td></tr>
+          <tr data-page-node-id="bnYx8xbaifqgSa81UnDLFX"><td class="k" data-page-node-id="WsuKbtoOBoEcxtE934Nx8T">还款与政策权限</td><td data-page-node-id="4A8MVqHWoVr9D9GR4ZwsBd">减免/分期权限在哪</td><td data-page-node-id="HPPxqwr2KVAhAtOxyzDdEu">我们能给客户的空间</td><td data-page-node-id="in9ooQFuindHTAQms0E5SO">谈清甲方授权区间</td></tr>
+          <tr data-page-node-id="OVkPhIXpktHDsLcLb0d9Od"><td class="k" data-page-node-id="h16bocwEubfQw0PZEBxAq0">投诉与客诉画像</td><td data-page-node-id="Jekm0YKXXdVcPc5G4bUZZ2">集中事由、监管转办量</td><td data-page-node-id="HzEOm2Vg7m8x9idmp4Pw3N">合规压力与检查频率</td><td data-page-node-id="zX6ly0cPR2uAhtt0NDi6ag">问近期检查与整改</td></tr>
+          <tr data-page-node-id="bFlgy1PnBhcNzqjBRjEKdN"><td class="k" data-page-node-id="P5VBp0ew6wgWFxslG5ioAq">甲方组织与考核</td><td data-page-node-id="4GCanvup33aBUuejNs75fc">贷后归属、KPI、换供应商频率</td><td data-page-node-id="IwwL4tP4QB2mLBsYOJzaM2">合同稳定性、规则是否常变</td><td data-page-node-id="H5sHtAaYf0F0A7k3m8pJZW">摸清流程与决策链</td></tr>
+        </table>
+      </div>
+      <div class="card" id="p5-3" data-page-node-id="w1EUe4eJwsTHJx32jIG6At">
+        <h3 data-page-node-id="J83hkL4wQd2CWE1pOTSXr2">5.3 现有客户参考（若有遗漏请补充）</h3>
+        <ul data-page-node-id="RcrJba3LAlDSFvDSyOKnYT">
+          <li data-page-node-id="k0LPFQGeq6maxcbMjs8Tsv"><b data-page-node-id="Ixql1eYAjnsoOKs9R8739p">尚诚</b>（纯自营、无助贷）：产品结构最简单——断链风险低、责任归属清晰；主要看<b data-page-node-id="Z9UParSXx60gUy48Bf6wVm">产品账龄滚动量</b>与<b data-page-node-id="HXMAJBTQDvzx19KWtiZKCf">甲方内部考核松紧</b>。</li>
+          <li data-page-node-id="Zezr1g2ZgDSrBQHDP7Phk2"><b data-page-node-id="MECto0BdMFkHGpUwbtLzEb">平安</b>（小橙花/陆易花/金易花，自营+助贷，C–M3）：三条产品线客群/账龄可能不同，<b class="hl" data-page-node-id="geoETAeDeYU5jpvEgCobYU">分产品线评估</b>——哪条线适合人力化承接、哪条线仍走结果付费，正对应其合同文本更换走向；另需跟进新合同考核细则（具体条款未见）。</li>
+          <li data-page-node-id="rEmj4eFKadr3SieKyTW5B3"><b data-page-node-id="Fn2XLyeqofYp6khRe8f5gy">幸福及其他</b>（收回约 50 亿渠道资产）：尽调第一问＝资产从哪个渠道收回、催收数据随迁多少、账龄与失联率——"全催"还是"半盲催"直接决定席位数与单价；预估短账龄 200–300 席需求。</li>
+          <li data-page-node-id="hOCCFh1BXVwnUf6Rlp8fIN"><b data-page-node-id="uUcA7nmH6whyS6KgCkObYV">北京阳光</b>（2027 规划，200–300 席）：尚未进入正式采购阶段，暂按"规划中"跟踪，不占用现有产能评估。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 六 -->
+    <div class="sec s6" id="p6" data-page-node-id="rpZkSgxfAs6V9R2iFfiBAh">
+      <div class="sec-head" data-page-node-id="2ockKxrqQMAOUwx1ioq6bb"><div class="no" data-page-node-id="org8S4Ak5KBAwYI7VdWQrc">六</div><h2 data-page-node-id="crBymSjORmiGHxoA9ye5sS">商务条款、指标约定与成本联动</h2></div>
+      <div class="card" data-page-node-id="3jwVlwSUEHJBYzBOJUBtzh">
+        <ul data-page-node-id="hovzG0mHxujF8sFDFEJCNh">
+          <li data-page-node-id="VBXlkkTczK6s7cwTowYPAL"><b data-page-node-id="F61Alp7asgaPdkaqENS9yj">计费与调价</b>：全包人头单价锚定当地社保基数与最低工资，调基（多 7 月）与最低工资调整触发自动重算；口径四拆分（薪酬/社保/场地/系统）书面澄清；空席与流失承担边界、结算账期 ≤60 天、场地费单列。</li>
+          <li data-page-node-id="qZxMzCM5KIGyddnEiVSFkd"><b data-page-node-id="boZAXz6fUKEDpHQanBQMyr">指标约定</b>：规则依据＝中银协"考核不得简单以回收率单一化"；谈判锚定三项——回收权重（建议 ≤40%）、扣罚上限（≤5%）、最低分案量/席位保障；观察甲方规则松紧信号，按单谈判。</li>
+          <li data-page-node-id="05QVjXgIAZvOMCRQ6k8wbg"><b data-page-node-id="SCmHqYQd5AoQeom5WpNHVu">量价与退出</b>：保底席位/月费；交接期 30–60 天与人员/数据退场义务（防"人走场空、债留我方"）；单方砍量违约补偿。</li>
+          <li data-page-node-id="7ezGyvG4zEmPrWGkdE7Fzs"><b data-page-node-id="dw94ih3oK0a4HlQ6gbTPMx">合规留痕</b>：合同措辞（作业人力/驻场服务）；作业手册甲方审定；双录质检；投诉 24h 闭环；用工与资质自查（社保实缴可查、无违规承诺、人力/劳务派遣许可证、呼叫中心与等保资质如涉及）。</li>
+          <li data-page-node-id="2VdnzJtCd1iYouNAHbOt6X"><b data-page-node-id="GyEk8qFOXozVdZ36ve4C0m">分模式要点</b>：B 真驻场——坐席分级与单价、甲方提供工位/系统/线路、结果责任条款建议归甲方；C 服务费制——口径四拆分、是否含招聘培训摊销、空席结算上限；D 全包人头——社保/最低工资联动调价、空席与流失边界、场地计价、福利与加班口径。</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 写在最后 -->
+    <div class="sec sx" id="px" data-page-node-id="Kig6ASZ2wvfOap7z6QODlq">
+      <div class="sec-head" data-page-node-id="tikpnL5WZY8Aown9ueDEZT"><div class="no" data-page-node-id="moWnlDyNDruRbdw9FlwC3m">终</div><h2 data-page-node-id="Phx25GFALsnYt7zbZkRZDe">写在最后：若窗口指导覆盖至民营、股份行，那又该如何看待短账龄业务</h2></div>
+      <div class="card" data-page-node-id="xduEnIUBFQpg5hp5BVjQQq">
+        <p data-page-node-id="Nradc4zXIyvtsDAZNKLHoF">从目前的情况看，短账龄这块的走势大概是：</p>
+        <ul data-page-node-id="B2OpWs32NehD471H0Cq0jM">
+          <li data-page-node-id="FWD3z4oQpPOuZZjOqb7BwG"><b data-page-node-id="gnShHuR1JjIUQa5feZiNld">甲方依然强势</b>：招标比价、单价年审、账期是常态；行业出清带来的是"门槛提高"，未必是"价格上升"——买方市场的格局短期或看不到反转；</li>
+          <li data-page-node-id="NjmMMNo6fLywgVAL164GXE"><b data-page-node-id="CaoLuxjbxttFthwIpBQnBd">监管持续施压</b>：行为规范上升至法律层面（银监法修订草案二审稿）、考核多维化、合规成本刚性上行（4.4 的社保征管从严只是其中一环）、名单制与检查常态化——合规成本在往甲方和乙方两头摊；</li>
+          <li data-page-node-id="4Gf3Pgjbew0kuGNYjTpz4I">两者叠加，短账龄承接或会继续"<b class="hl" data-page-node-id="sgcA0Hq9W2SfpeWqi0o7Z9">人力供给化</b>"：按席人头的逻辑占主导、回收结果越来越留在甲方，人头单价受比价与成本两头挤压，利润靠规模、满席率与运营效率，而不是回收分成。</li>
+        </ul>
+        <p style="margin-top:8px" data-page-node-id="Rcg4PsT7dE0pWkQiI6nK77">顺着这个判断，业务上需要想清楚的是：<b data-page-node-id="BbybnD6PugFuYQU9NFXGA5">这样低毛利、低稳定、越来越像"人力供给"的业务，如何接</b>——是保现金流、养队伍的底盘，还是应该把资源更多投向更有护城河的环节（司法前置带来的调解/司法衔接服务、M3+/长期限处置、合规体系与工具的标准化输出）？承接方式上，是否坚持"结果责任留甲方、按人按月计费、考核多维化"的底线——宁可单价低一点，也不接名实不一、隐含背结果的合同？</p>
+        <div class="view red" style="margin-top:8px" data-page-node-id="ZSeVeUW7FJktWU42PJojPT"><b data-page-node-id="uWtKy81QpMsIp4FEJ2nbAM">再往后看一步</b>：如果监管口径从消金、互联网银行继续覆盖到民营银行乃至股份行，"短账龄自营 + 人力外包补人"或许会成为更普遍的采购形态——那时手里有可复制合规交付体系的一方就是稀缺供给；但同时也意味着采购方标准更高、审计更严，进入门槛与运营成本同步抬升。届时的短账龄业务，或许要重新按"准金融外包服务商"的标准来要求自己——方向性的准备，现在就可以开始。</div>
+      </div>
+    </div>
+
+    <div class="sec" id="appendix" data-page-node-id="2EyPbraCZk35rexksXFuOt">
+      <div class="sec-head" data-page-node-id="IivcKFHQGyNnVHQwPfCTtB"><div class="no" style="background:#4a5568" data-page-node-id="WmHua5AySH6yPPHHQD6pUX">附</div><h2 data-page-node-id="mDHm8WDazJzWfVokDpD7RP">附录</h2></div>
+      <div class="card" data-page-node-id="HIXtr8yUj2rSobvOI5z8dR">
+        <p data-page-node-id="9qbb5e9065poxWtHPQ6Gzv"><b data-page-node-id="bUJyQEvVuvv5qoBKIPfo7H">术语</b>：M1（1–30 天）/M2（31–60 天）/M3（61–90 天），C 指当期未逾期段（current，约同 M0；个别机构亦以 C 表核销段，以甲方口径为准）；驻场（甲方职场）vs 离场（乙方场地）；委外（结果负责+按回收计酬）vs 人力外包（按人按月）vs 劳务派遣（受甲方指挥）。</p>
+        <p style="margin-top:8px" data-page-node-id="xdmFuUw1LvsOFAMNnP2Bbb"><b data-page-node-id="CFU1eAGIP6M5oE7MxziheJ">口径与来源说明</b>：</p>
+        <ul data-page-node-id="611nG93QaxDkoC0UJJJZDf">
+          <li data-page-node-id="P7J43uokWspd07tOJfYHGD">"客户口径"＝来自客户侧沟通、非公开披露（尚诚产品结构；平安产品线/账龄/切换；幸福收回约 50 亿与 200–300 席；阳光 2027 规划 200–300 席；互联网银行窗口指导；中信 950 为服务费口径）——仅限内部使用；</li>
+          <li data-page-node-id="Xy4CqJg26xA952PSay28D7">政策：金规〔2025〕9号助贷新规（中国政府网）、银行业监督管理法修订草案二次审议稿（新华社/检察日报 2026-08-25）、中银协催收指引（2026-01）、催收国标 GB/T 45251-2025、多地 2026 社保调基公告、15 省最低工资调整（2026-07）、国家税务总局 2026 年第 10 号公告、公安部与人民日报关于金融"黑灰产"集群打击的发布；</li>
+          <li data-page-node-id="A0ZhfCZ9aYTyhCA9JpAv2m">行业数据：助贷平台 2026 中报（奇富/乐信/信也/小赢/嘉银等，上证报、新浪财经、新华财经 2026-09 报道）；委外佣金区间参考邮储/建行等公开招标实例与行业报道；坐席成本区间与盈亏底线为基于公开薪资、社保政策与行业经验的估算，非经营承诺；</li>
+          <li data-page-node-id="pfKBC3t2HvUs1jMdwrn1Wk">事实底稿与完整来源指向此前各版（09-02 第一版起）与 saochu-daily 日报素材库。</li>
+        </ul>
+        <p style="margin-top:8px" data-page-node-id="0rSGTcbzUdeEpoqjiNLR8h"><b data-page-node-id="0NGo9rENbtUDPnV3jDq5UU">声明</b>：内部研讨稿；客户口径与行业信息待进一步核实；测算与费率区间仅供参考；判断留有探讨余地。</p>
+      </div>
+    </div>
+
+    <div class="foot" data-page-node-id="gOabPCgtEDO0FrZNUrB03p">内部研讨稿 · 2026-09-08 ｜ 探讨口吻、不结论先行 ｜ 客户口径与公开信息分列标注，详见附录</div>
+  </div>
+</div>
+
+<a href="#p1" class="to-top" data-page-node-id="cJ19GKygr2jQEQ5XZU0Cdw">↑</a>
+</body>
+</html>
